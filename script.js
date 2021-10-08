@@ -3,7 +3,7 @@ document.write('<script src="https://pay.gocardless.com/billing/static/dropin/v2
 
 var gocardlessHandler = function() {
   const url = this.getAttribute('data-url');
-  const reqUrl = 'https://simon.ws/gocardless/dev/get.php?paylink_url=' + url;
+  const reqUrl = 'https://dropin-generator.herokuapp.com/get?paylink_url=' + url;
   const env = this.getAttribute('data-environment');
 
   if(isValidHttpUrl(this.getAttribute('data-url')) === false){
