@@ -15,14 +15,14 @@ if(!isset($_REQUEST['paylink_url'])){
       )
   );
 
-  $html = file_get_contents($_REQUEST['paylink_url'], false, $context);
+  $content = file_get_contents($_REQUEST['paylink_url'], false, $context);
   if($content === FALSE){
     $response = [
       "brf_id" => null,
       "success" => false
     ];
   } else {
-    $str = substr($http_response_header[2], strpos($http_response_header[2], "id="));
+    $str = substr($http_response_header[4], strpos($http_response_header[4], "id="));
     $brf_id = substr($str,3);
 
     if (strpos($brf_id, "BRF") === 0) {
